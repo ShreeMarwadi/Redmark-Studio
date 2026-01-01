@@ -612,7 +612,8 @@ class ChessGame {
                 document.getElementById('playPvP').addEventListener('click', () => this.startPvP());
                 document.getElementById('quitGame').addEventListener('click', () => {
     if (confirm('Are you sure you want to quit the game?')) {
-        window.location.href = '../../index.html';
+       window.location.href = 'https://shreemarwadi.github.io/Redmark-Studio/';
+
     }
 });
 
@@ -1143,3 +1144,4 @@ class ChessGame {
         // Initialize game
 
         const chessUI = new ChessUI();
+
