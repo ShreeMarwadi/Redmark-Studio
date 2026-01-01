@@ -94,7 +94,7 @@ function loadAllGames() {
  */
 function createGameCard(game) {
     return `
-        <div class="game-card">
+        <div class="game-card" onclick="openGame('${game.id}')">
             <div class="game-thumbnail">
                 <span class="game-icon">${game.icon}</span>
             </div>
