@@ -65,7 +65,7 @@ const GamesConfig = {
     ],
 
     {
-    id: 'echostep',
+    id: 'Stack',
     title: 'EchoStep',
     description:
         'A rhythmic platformer where your movement shapes the world. Each step and jump is recorded in time cycles, transforming past actions into glowing echo platforms used to reach the goal.',
@@ -73,7 +73,7 @@ const GamesConfig = {
     genre: 'Platformer',
     tags: ['Rhythm', 'Platformer', 'Puzzle', 'Indie'],
     icon: '🔷',
-    path: 'games/Stack/index.html',
+    path: 'games/Stack/',
     playable: true,
     featured: true,
 
