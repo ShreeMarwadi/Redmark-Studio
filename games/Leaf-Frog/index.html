@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <title>Leaf Hopper</title>
+    
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="ui">
+            <div class="score-container">
+                <div class="score-label">Height</div>
+                <div class="score-value" id="scoreDisplay">0</div>
+                <div class="high-score" id="highScoreDisplay">Best: 0</div>
+            </div>
+        </div>
+
+        <div id="menu">
+            <svg class="frog-icon" viewBox="0 0 100 100">
+                <!-- Frog body -->
+                <ellipse cx="50" cy="60" rx="35" ry="28" fill="#7CB342"/>
+                <ellipse cx="50" cy="62" rx="28" ry="22" fill="#AED581"/>
+                <!-- Eyes -->
+                <circle cx="35" cy="35" r="12" fill="#7CB342"/>
+                <circle cx="65" cy="35" r="12" fill="#7CB342"/>
+                <circle cx="35" cy="35" r="7" fill="#FFF"/>
+                <circle cx="65" cy="35" r="7" fill="#FFF"/>
+                <circle cx="37" cy="35" r="3" fill="#333"/>
+                <circle cx="67" cy="35" r="3" fill="#333"/>
+                <!-- Smile -->
+                <path d="M 35 55 Q 50 65 65 55" stroke="#558B2F" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <!-- Cheeks -->
+                <circle cx="25" cy="52" r="6" fill="#F8BBD9" opacity="0.5"/>
+                <circle cx="75" cy="52" r="6" fill="#F8BBD9" opacity="0.5"/>
+            </svg>
+            <div class="game-title">Leaf Hopper</div>
+            <div class="game-subtitle">A relaxing climb</div>
+            <button class="menu-btn" id="startBtn">Start Game</button>
+            <div class="controls-hint">
+                <span>← →</span> or <span>A D</span> to move<br>
+                <span>SPACE</span> or <span>TAP</span> to jump
+            </div>
+        </div>
+
+        <div id="mobileControls">
+            <div class="tap-area left" id="leftArea">
+                <div class="tap-indicator left"></div>
+            </div>
+            <div class="tap-area right" id="rightArea">
+                <div class="tap-indicator right"></div>
+            </div>
+            <div class="jump-btn-container">
+                <button class="jump-btn" id="jumpBtn">🌿</button>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

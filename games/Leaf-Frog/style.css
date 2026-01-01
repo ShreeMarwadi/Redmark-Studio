@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 50%, #FFF8E1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Quicksand', sans-serif;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 100vh;
+            max-height: 800px;
+            background: linear-gradient(180deg, #E3F2FD 0%, #E8F5E9 50%, #81D4FA 100%);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (min-width: 500px) {
+            #gameContainer {
+                border-radius: 20px;
+                height: 90vh;
+            }
+        }
+
+        #gameCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        #ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .score-container {
+            text-align: center;
+        }
+
+        .score-label {
+            font-size: 12px;
+            color: #558B2F;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        .score-value {
+            font-size: 42px;
+            font-weight: 700;
+            color: #33691E;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .high-score {
+            font-size: 14px;
+            color: #689F38;
+            margin-top: 5px;
+        }
+
+        #menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(232, 245, 233, 0.95) 0%, rgba(227, 242, 253, 0.95) 100%);
+            z-index: 100;
+            pointer-events: auto;
+            transition: opacity 0.5s ease;
+        }
+
+        #menu.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .game-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #558B2F;
+            text-shadow: 3px 3px 0 #A5D6A7, 6px 6px 0 rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .game-subtitle {
+            font-size: 18px;
+            color: #7CB342;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .frog-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .menu-btn {
+            background: linear-gradient(135deg, #81C784 0%, #66BB6A 100%);
+            border: none;
+            color: white;
+            padding: 18px 60px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(102, 187, 106, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 187, 106, 0.5);
+        }
+
+        .menu-btn:active {
+            transform: translateY(0);
+        }
+
+        .controls-hint {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #689F38;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .controls-hint span {
+            display: inline-block;
+            background: #C8E6C9;
+            padding: 4px 12px;
+            border-radius: 8px;
+            margin: 0 3px;
+            font-weight: 600;
+        }
+
+        #mobileControls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            display: none;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .mobile-controls-visible {
+            display: block !important;
+            pointer-events: auto !important;
+        }
+
+        .tap-area {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            pointer-events: auto;
+        }
+
+        .tap-area.left {
+            left: 0;
+        }
+
+        .tap-area.right {
+            right: 0;
+        }
+
+        .tap-indicator {
+            position: absolute;
+            bottom: 30px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(129, 199, 132, 0.3);
+            border: 3px dashed rgba(129, 199, 132, 0.6);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tap-area:active .tap-indicator {
+            opacity: 1;
+        }
+
+        .tap-indicator.left {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tap-indicator.right {
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        .jump-btn-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: auto;
+        }
+
+        .jump-btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #81C784, #66BB6A);
+            border: 4px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(102, 187, 106, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            transition: all 0.1s ease;
+        }
+
+        .jump-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 10px rgba(102, 187, 106, 0.3);
+        }
+
+        @media (max-width: 768px), (pointer: coarse) {
+            #mobileControls.mobile-controls-visible {
+                display: block !important;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
