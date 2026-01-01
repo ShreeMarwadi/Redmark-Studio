@@ -1,12 +1,4 @@
-/**
- * ╔══════════════════════════════════════════════════════════════════╗
- * ║                    NEBULA ARCADE - SECURITY                       ║
- * ║          Source Code Protection & Anti-Tampering System           ║
- * ╚══════════════════════════════════════════════════════════════════╝
- * 
- * This module implements multiple layers of protection to prevent
- * unauthorized access, code theft, and reverse engineering.
- */
+
 
 // ═══════════════════════════════════════════════════════════════════
 // CONFIGURATION
