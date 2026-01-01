@@ -1,27 +1,22 @@
 
 
-const GamesConfig = {
-    // Current version of the platform
-    version: '1.0.0',
-    
-    // Game registry - Add new games here
+cconst GamesConfig = {
     games: [
         {
             id: 'chess',
-            title: 'Cosmic Chess',
-            description: 'Experience chess in a whole new dimension. Complete move validation, special moves, and an elegant dark-themed interface.',
-            shortDescription: 'Strategic chess in space',
+            title: 'Royal Chess',
             genre: 'Strategy',
-            tags: ['Chess', 'Strategy', 'Board Game'],
-            icon: '♟️',
+            shortDescription: 'Classic chess with AI and PvP',
             path: 'games/chess/',
             playable: true,
-            featured: true,
             stats: {
-                plays: getPlayCount('chess'),
-                rating: 4.8,
-                difficulty: 'Medium'
-            },
+                difficulty: 'Medium',
+                plays: 0
+            }
+        }
+    ]
+};
+
             instructions: [
                 'Click a piece to select it (highlighted squares show valid moves)',
                 'Click a destination square to move the piece',
