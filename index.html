@@ -1,78 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Royal Chess - Indian Classic</title>
-    
+    <title>Redmark Studio - Web Game Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Redmark Studio - A secure platform for handcrafted web games.">
 </head>
+
 <body>
-    <div id="gameContainer">
-        <!-- Home Page -->
-        <div class="indianBorder" id="homePage">
-            <h1 class="gameLogo">♔ Royal Chess ♕</h1>
-            <p class="gameSubtitle">Indian Classical</p>
-            <div class="decorativeLotus">✦ ✦ ✦</div>
-            
-            <button class="menuButton" id="playVsAI">⚔️ Play vs AI</button>
-            <button class="menuButton" id="playPvP">👥 Player vs Player</button>
-            <button class="menuButton" id="quitGame">🚪 Quit</button>
-            
-            <div class="decorativeLotus">✦ ✦ ✦</div>
-        </div>
-
-        <!-- Color Selection -->
-        <div class="indianBorder" id="colorSelection">
-            <h2 class="colorTitle">Choose Your Side</h2>
-            <div class="colorButtons">
-                <button class="colorBtn whiteBtn" id="chooseWhite">⚪ WHITE</button>
-                <button class="colorBtn blackBtn" id="chooseBlack">⚫ BLACK</button>
-            </div>
-        </div>
-
-        <!-- Chess Game -->
-        <div class="indianBorder" id="chessGame">
-            <div class="gameHeader">
-                <div class="turnIndicator" id="turnIndicator">White's Turn</div>
-                <div class="gameInfo" id="gameInfo"></div>
-            </div>
-            
-            <div class="capturedContainer">
-                <div class="capturedPieces whiteCaptured" id="whiteCaptured"></div>
-                <div class="capturedPieces blackCaptured" id="blackCaptured"></div>
-            </div>
-            
-            <div id="chessBoard"></div>
-            
-            <div id="aiThinking">AI is thinking<span class="thinkingDots">...</span></div>
-            
-            <div class="gameControls">
-                <button class="controlButton" id="newGame">🎮 New Game</button>
-                <button class="controlButton" id="undoMove">↩️ Undo</button>
-                <button class="controlButton" id="goHome">🏠 Home</button>
-            </div>
-            
-            <div id="moveHistory"></div>
+    <!-- Security Overlay -->
+    <div id="security-overlay" class="hidden">
+        <div class="security-warning">
+            <div class="warning-icon"></div>
+            <h2>SECURITY ALERT</h2>
+            <p id="security-message">Unauthorized access detected</p>
+            <button onclick="location.reload()">RETURN TO SAFETY</button>
         </div>
     </div>
 
-    <!-- Game Status Overlay -->
-    <div id="gameStatus">
-        <div class="statusModal">
-            <h2 class="statusTitle" id="statusTitle">Checkmate!</h2>
-            <p class="statusMessage" id="statusMessage">White wins the game!</p>
-            <button class="menuButton" id="playAgain">🔄 Play Again</button>
-            <button class="menuButton" id="statusGoHome">🏠 Home</button>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <span class="loader-text">REDMARK STUDIO</span>
         </div>
     </div>
 
-    <!-- Promotion Modal -->
-    <div id="promotionModal">
-        <h3 class="promotionTitle">Choose Promotion</h3>
-        <div class="promotionPieces" id="promotionPieces"></div>
-    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="navigateTo('home')">
+                <span class="logo-icon"></span>
+                <span class="logo-text">REDMARK<span class="accent">STUDIO</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="home" onclick="navigateTo('home')">
+                    <span class="nav-line"></span> HOME
+                </a>
+                <a href="#" class="nav-link" data-page="games" onclick="navigateTo('games')">
+                    <span class="nav-line"></span> GAMES
+                </a>
+                <a href="#" class="nav-link" data-page="about" onclick="navigateTo('about')">
+                    <span class="nav-line"></span> ABOUT
+                </a>
+            </div>
+        </div>
+    </nav>
 
-    <script src="script.js"></script>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- HOME PAGE -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <div class="hero-bg-elements">
+                    <div class="bg-circle circle-1"></div>
+                    <div class="bg-circle circle-2"></div>
+                    <div class="bg-line line-1"></div>
+                    <div class="bg-line line-2"></div>
+                    <div class="bg-line line-3"></div>
+                </div>
+                <div class="hero-content">
+                    <div class="hero-badge">SECURE GAME PLATFORM</div>
+                    <h1 class="hero-title">
+                        <span class="title-line">WE CRAFT</span>
+                        <span class="title-line accent">DIGITAL</span>
+                        <span class="title-line">EXPERIENCES</span>
+                    </h1>
+                    <p class="hero-subtitle">Handcrafted web games with uncompromising security. Experience gaming
+                        evolved.</p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary" onclick="navigateTo('games')">
+                            <span class="btn-text">EXPLORE GAMES</span>
+                            <span class="btn-arrow"></span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="navigateTo('about')">
+                            <span class="btn-text">OUR STORY</span>
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="games">1</span>
+                            <span class="stat-label">GAMES</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="plays">0</span>
+                            <span class="stat-label">PLAYS</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="updates">24</span>
+                            <span class="stat-label">UPDATES</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Section -->
+            <div class="featured-section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">FEATURED RELEASE</h2>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-visual">
+                        <div class="chess-showcase">
+                            <div class="showcase-piece" style="--delay: 0">♔</div>
+                            <div class="showcase-piece" style="--delay: 1">♕</div>
+                            <div class="showcase-piece" style="--delay: 2">♖</div>
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        <div class="content-tag">NEW RELEASE</div>
+                        <h3 class="featured-title">COSMIC CHESS</h3>
+                        <p class="featured-description">
+                            A masterfully crafted chess experience. Complete move validation,
+                            special moves, and an interface that blends elegance with power.
+                        </p>
+                        <div class="featured-meta">
+                            <span class="meta-item">
+                                <span class="meta-icon"></span>
+                                STRATEGY
+                            </span>
+                            <span class="meta-item">
+                                <span class="meta-icon"></span>
+                                INFINITE
+                            </span>
+                        </div>
+                        <button class="btn btn-primary" onclick="navigateTo('games')">
+                            <span class="btn-text">PLAY NOW</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Preview -->
+            <div class="games-preview-section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">OUR GAMES</h2>
+                </div>
+                <div class="games-grid" id="home-games-grid">
+                    <!-- Games loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- GAMES PAGE -->
+        <section id="games-page" class="page">
+            <div class="games-hero">
+                <div class="games-hero-bg">
+                    <div class="bg-grid"></div>
+                </div>
+                <div class="games-header">
+                    <div class="section-header centered">
+                        <span class="section-number">01</span>
+                    </div>
+                    <h1 class="page-title">GAME LIBRARY</h1>
+                    <p class="page-subtitle">Choose your challenge. Own the board.</p>
+                </div>
+            </div>
+            <div class="games-grid full-width" id="games-page-grid">
+                <!-- Games loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about-page" class="page">
+            <div class="about-hero">
+                <div class="about-hero-bg">
+                    <div class="bg-circle large"></div>
+                </div>
+                <div class="about-header">
+                    <div class="section-header centered">
+                        <span class="section-number">01</span>
+                    </div>
+                    <h1 class="page-title">ABOUT US</h1>
+                    <p class="page-subtitle">The minds behind Redmark Studio</p>
+                </div>
+            </div>
+
+            <div class="about-container">
+                <!-- Mission Section -->
+                <div class="about-section">
+                    <div class="section-header">
+                        <span class="section-number">02</span>
+                        <h2 class="section-title">OUR PHILOSOPHY</h2>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon"></div>
+                        <p>
+                            Redmark Studio was born from a small group of gamers who believed play should come first.
+                            We create games driven by curiosity, creativity, and respect for the player’s experience.
+                            Every mechanic we design is tested by instinct, not trends.
+                            We value meaningful worlds, satisfying gameplay, and honest effort.
+                            As an indie studio, we grow by learning, experimenting, and failing forward.
+                            For us, making games is not just work. It’s passion turned playable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="about-section">
+                    <div class="section-header">
+                        <span class="section-number">03</span>
+                        <h2 class="section-title">THE TEAM</h2>
+                    </div>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="team-card-bg"></div>
+                            <div class="team-avatar">
+                                <span class="avatar-text">D</span>
+                            </div>
+                            <h3 class="team-name">DEVELOPER</h3>
+                            <p class="team-role">FOUNDER & LEAD</p>
+                            <p class="team-bio">
+                                Started as a gamer driven by curiosity about game mechanics and design.
+Now codes and builds the entire game from concept to completion.
+                            </p>
+                            <div class="team-skills">
+                                <span class="skill-tag">C</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">UNITY</span>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-card-bg"></div>
+                            <div class="team-avatar">
+                                <span class="avatar-text">D</span>
+                            </div>
+                            <h3 class="team-name">DESIGNER</h3>
+                            <p class="team-role">UI/UX LEAD</p>
+                            <p class="team-bio">
+                                Crafts beautiful, intuitive interfaces that enhance the gaming experience.
+                                Believes in the power of thoughtful design.
+                            </p>
+                            <div class="team-skills">
+                                <span class="skill-tag">UI DESIGN</span>
+                                <span class="skill-tag">MOTION</span>
+                                <span class="skill-tag">BRANDING</span>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-card-bg"></div>
+                            <div class="team-avatar">
+                                <span class="avatar-text">Q</span>
+                            </div>
+                            <h3 class="team-name">QA ENGINEER</h3>
+                            <p class="team-role">QUALITY ASSURANCE</p>
+                            <p class="team-bio">
+                                Ensures every game meets the highest standards of quality and security.
+                                Nothing slips past their thorough testing.
+                            </p>
+                            <div class="team-skills">
+                                <span class="skill-tag">TESTING</span>
+                                <span class="skill-tag">SECURITY</span>
+                                <span class="skill-tag">AUTOMATION</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Section -->
+                <div class="about-section">
+                    <div class="section-header">
+                        <span class="section-number">04</span>
+                        <h2 class="section-title">TECHNOLOGY</h2>
+                    </div>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <span class="tech-icon"></span>
+                            <span class="tech-name">UNITY</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon"></span>
+                            <span class="tech-name">BLENDER</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon"></span>
+                            <span class="tech-name">PHOTOSHOP</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon"></span>
+                            <span class="tech-name">RESPONSIVE DESIGN</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon"></span>
+                            <span class="tech-name">FIGMA</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon"></span>
+                            <span class="tech-name">PERFORMANCE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="about-section">
+                    <div class="section-header">
+                        <span class="section-number">05</span>
+                        <h2 class="section-title">CONNECT</h2>
+                    </div>
+                    <div class="contact-card">
+                        <p>Have questions, suggestions, or want to collaborate? We'd love to hear from you.</p>
+                        <div class="contact-links">
+                            <a href="https://www.instagram.com/shardul_marwadi/" target="_blank" class="contact-link">
+                                <span class="contact-icon"></span>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://www.youtube.com/@SuperShreeGaming" class="contact-link">
+                                <span class="contact-icon"></span>
+                                <span>Youtube</span>
+                            </a>
+                            <!--<a href="#" class="contact-link">
+                                <span class="contact-icon"></span>
+                                <span>TWITTER</span>-->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-logo">
+                    <span class="logo-mark"></span>
+                    <span class="logo-text">REDMARK STUDIO</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="navigateTo('home')">HOME</a>
+                    <a href="#" onclick="navigateTo('games')">GAMES</a>
+                    <a href="#" onclick="navigateTo('about')">ABOUT</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">2026 REDMARK STUDIO. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/security.js"></script>
+    <script src="js/games-config.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
