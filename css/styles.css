@@ -1484,3 +1484,18 @@ img {
         gap: var(--spacing-md);
     }
 }
+
+.game-card {
+    pointer-events: auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-bg-elements,
+.bg-circle,
+.bg-line,
+.games-hero-bg {
+    pointer-events: none;
+}
+
