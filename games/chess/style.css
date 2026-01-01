@@ -196,25 +196,26 @@
         }
 
         #chessBoard {
-            border: 5px solid #3E2723;
-            border-radius: 5px;
-            box-shadow: 
-                0 6px 25px rgba(0, 0, 0, 0.5);
-            width: 480px;
-            height: 480px;
-            display: grid;
-            grid-template-columns: repeat(8, 60px);
-            grid-template-rows: repeat(8, 60px);
-            table-layout: fixed;
-        }
+    width: min(90vw, 480px);
+    aspect-ratio: 1 / 1;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+
+    border: 5px solid #3E2723;
+    border-radius: 5px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
 
         .boardSquare {
-            width: 60px;
-            height: 60px;
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 42px;
+            font-size: clamp(24px, 6vw, 42px);
             cursor: pointer;
             transition: none;
             position: relative;
@@ -580,4 +581,5 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-15px); }
             to { opacity: 1; transform: translateY(0); }
+
         }
