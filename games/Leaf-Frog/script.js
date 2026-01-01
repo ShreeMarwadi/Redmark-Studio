@@ -741,6 +741,10 @@ function showMenu() {
   document.getElementById("menu").classList.remove("hidden");
   updateUI();
 }
+function quitToHome() {
+  window.location.href = "https://shreemarwadi.github.io/Redmark-Studio/";
+}
+
 
 function startGame() {
   document.getElementById("menu").classList.add("hidden");
@@ -1005,3 +1009,19 @@ updateUI();
 // Start game loop
 lastTime = performance.now();
 requestAnimationFrame(gameLoop);
+
+(function () {
+    const quitBtn = document.getElementById("quitBtn");
+
+    if (quitBtn) {
+        quitBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Absolute redirect to home
+            window.location.href = "https://shreemarwadi.github.io/Redmark-Studio/";
+        });
+    } else {
+        console.warn("Quit button not found");
+    }
+})();
