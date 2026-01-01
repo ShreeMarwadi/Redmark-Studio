@@ -111,6 +111,17 @@ function createGameCard(game) {
     `;
 }
 
+function openGame(gameId) {
+    const game = GamesConfig.getGameById(gameId);
+    if (!game || !game.playable) return;
+
+    // increment play count
+    GamesConfig.incrementPlayCount(gameId);
+
+    // navigate to game
+    window.location.href = game.path;
+}
+
 // ═══════════════════════════════════════════════════════════════════
 // ANIMATED COUNTERS
 // ═══════════════════════════════════════════════════════════════════
