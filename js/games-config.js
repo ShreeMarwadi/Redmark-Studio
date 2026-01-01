@@ -73,7 +73,7 @@ const GamesConfig = {
     genre: 'Platformer',
     tags: ['Rhythm', 'Platformer', 'Puzzle', 'Indie'],
     icon: '🔷',
-    path: 'games/echostep/index.html',
+    path: 'games/Stack/index.html',
     playable: true,
     featured: true,
 
