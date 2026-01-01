@@ -130,7 +130,7 @@ function animateCounters() {
     // Force 50+ display for plays
     const playsEl = document.querySelector('[data-count="plays"]');
     if (playsEl) {
-        playsEl.textContent = '100+';
+        playsEl.textContent = '50+';
     }
 
     animateNumber('updates', 24);
