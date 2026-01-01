@@ -105,9 +105,7 @@ function createGameCard(game) {
     `;
 }
 
-GamesConfig.games.forEach(game => {
-    game.stats.plays = getPlayCount(game.id);
-});
+
 
 
 // ═══════════════════════════════════════════════════════════════════
