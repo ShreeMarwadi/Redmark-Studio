@@ -1,12 +1,4 @@
-/**
- * ╔══════════════════════════════════════════════════════════════════╗
- * ║                 NEBULA ARCADE - GAMES CONFIG                      ║
- * ║              Central Game Registry & Metadata                     ║
- * ╚══════════════════════════════════════════════════════════════════╝
- * 
- * Add new games to this configuration file.
- * Each game must have its own folder in /games/
- */
+
 
 const GamesConfig = {
     // Current version of the platform
@@ -134,3 +126,25 @@ GamesConfig.loadStats();
 
 // Export for use
 window.GamesConfig = GamesConfig;
+
+const STORAGE_KEY = 'redmark_games_plays';
+
+function loadPlays() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+}
+
+function savePlays(data) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function getPlayCount(gameId) {
+    const data = loadPlays();
+    return data[gameId] || 0;
+}
+
+function incrementPlayCount(gameId) {
+    const data = loadPlays();
+    data[gameId] = (data[gameId] || 0) + 1;
+    savePlays(data);
+}
+
