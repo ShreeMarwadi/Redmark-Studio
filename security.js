@@ -19,7 +19,7 @@ const SecurityConfig = {
         '127.0.0.1',
         'nebula-arcade.vercel.app',
         'nebula-arcade.com',
-        'www.nebula-arcade.com'
+        'https://shreemarwadi.github.io/Redmark-Studio/'
     ],
     
     // Enable/disable protection features
