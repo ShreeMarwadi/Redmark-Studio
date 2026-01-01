@@ -17,6 +17,14 @@
             padding: 20px;
         }
 
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 8px;
+    }
+}
+
+
         body::before {
             content: '';
             position: fixed;
@@ -62,7 +70,7 @@
 
         #homePage {
             text-align: center;
-            min-width: 380px;
+            
         }
 
         .gameLogo {
@@ -589,66 +597,37 @@
    ========================= */
 @media (max-width: 768px) {
 
-    body {
-        padding: 10px;
-        align-items: flex-start;
-    }
-
-    #gameContainer {
+    #chessGame {
         width: 100%;
     }
 
     .indianBorder {
-        padding: 14px;
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+    }
+
+    #chessBoard {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    #moveHistory {
         width: 100%;
         max-width: 100%;
     }
 
-    /* Chess board scales perfectly */
-    #chessBoard {
-        width: 95vw;
-        max-width: 95vw;
-    }
-
-    /* Smaller chess pieces on phone */
-    .chessPiece {
-        width: 100%;
-        height: 100%;
-        font-size: clamp(22px, 8vw, 36px);
-    }
-
-    /* Header stacks nicely */
     .gameHeader {
+        width: 100%;
         flex-direction: column;
         gap: 6px;
     }
 
-    /* Buttons become touch-friendly */
-    .menuButton,
-    .controlButton {
+    .capturedContainer {
         width: 100%;
-        min-width: unset;
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .gameControls {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    /* Move history fits screen */
-    #moveHistory {
-        width: 100%;
-        max-width: 100%;
-        max-height: 120px;
-        font-size: 10px;
-    }
-
-    /* Promotion modal stays centered */
-    #promotionModal {
-        width: 90vw;
     }
 }
+
 
 
