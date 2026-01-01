@@ -54,6 +54,7 @@
             box-shadow: 
                 0 8px 30px rgba(0, 0, 0, 0.5),
                 inset 0 2px 8px rgba(255, 215, 0, 0.1);
+         box-sizing: border-box;
         }
 
         .indianBorder::before {
@@ -692,6 +693,7 @@
         height: 70vmin;
     }
 }
+
 
 
 
