@@ -188,8 +188,8 @@ function initApp() {
     loadAllGames();
 
     hideLoadingScreen();
+    animateCounters();
 
-    setTimeout(animateCounters, 2200);
 
     console.log('✅ Redmark Studio initialized successfully');
 }
