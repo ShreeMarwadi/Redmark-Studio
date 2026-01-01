@@ -18,7 +18,7 @@ const GamesConfig = {
             playable: true,
             featured: true,
             stats: {
-                plays: getPlayCount('chess')
+                plays: getPlayCount('chess'),
                 rating: 4.8,
                 difficulty: 'Medium'
             },
