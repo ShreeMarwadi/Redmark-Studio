@@ -64,6 +64,34 @@ const GamesConfig = {
         }
     ],
 
+
+    {
+            id: 'Stack',
+            title: 'Echo Step',
+            description: "EchoStep is a rhythmic 2D platformer where your movement shapes the world.
+Every step, jump, and turn you make is recorded in time-based cycles, transforming your past actions into glowing echo platforms you can stand on.
+
+There are no enemies to fight.
+Instead, the challenge comes from timing, planning, and flow. The environment reacts to a steady rhythm, forcing you to move with intention and think ahead while staying in motion.",
+            shortDescription: 'EchoStep is a rhythmic platformer where your past movement becomes temporary platforms.
+Move with the beat, plan ahead, and use echoes of your actions to navigate a reactive world.',
+            genre: 'platformer',
+            tags: ['New'],
+            icon: '▢',
+            path: 'games/Leaf-Frog/',
+            playable: true,
+            featured: true,
+
+            stats: {
+                plays: '10',
+                rating: 8,
+                difficulty: 'Medium'
+            },
+
+            instructions: ['EchoStep is a rhythmic platformer where your movement shapes the world around you. As you run and jump, the game records your actions in repeating time cycles, turning your recent movement into glowing echo platforms you can stand on. There are no enemies to fight; instead, the challenge comes from timing, planning, and moving with intention. Hazards activate in rhythm, older echoes fade away, and every step matters. To succeed, you must think ahead, use the beat to your advantage, and transform past mistakes into paths forward while navigating toward the goal.']
+        }
+    ],
+    
     // ───────────────────────────────────────────────────────────────
     // HELPERS
     // ───────────────────────────────────────────────────────────────
