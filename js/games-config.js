@@ -64,6 +64,35 @@ const GamesConfig = {
         }
     ],
 
+    {
+    id: 'echostep',
+    title: 'EchoStep',
+    description:
+        'A rhythmic platformer where your movement shapes the world. Each step and jump is recorded in time cycles, transforming past actions into glowing echo platforms used to reach the goal.',
+    shortDescription: 'A rhythm-based echo platformer',
+    genre: 'Platformer',
+    tags: ['Rhythm', 'Platformer', 'Puzzle', 'Indie'],
+    icon: '🔷',
+    path: 'games/echostep/index.html',
+    playable: true,
+    featured: true,
+
+    stats: {
+        plays: '25+',
+        rating: 4.9,
+        difficulty: 'Medium'
+    },
+
+    instructions: [
+        'Move and jump to create echo platforms',
+        'Echoes form at the end of each rhythm cycle',
+        'Older echoes fade away over time',
+        'Avoid pulse hazards and falling',
+        'Reach the glowing goal portal'
+    ]
+}
+
+
 
     
     // ───────────────────────────────────────────────────────────────
