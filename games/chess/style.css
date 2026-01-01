@@ -630,6 +630,71 @@
     }
 }
 
+/* ===============================
+   RESPONSIVE CHESS BOARD
+   RATIO-BASED (BULLETPROOF)
+   =============================== */
+
+/* Base safe default */
+#chessBoard {
+    width: 88vmin;
+    height: 88vmin;
+    max-width: 480px;
+    max-height: 480px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 16:9 phones */
+@media (max-aspect-ratio: 16/9) {
+    #chessBoard {
+        width: 86vmin;
+        height: 86vmin;
+    }
+}
+
+/* 18:9 phones */
+@media (min-aspect-ratio: 18/9) and (max-aspect-ratio: 19/9) {
+    #chessBoard {
+        width: 84vmin;
+        height: 84vmin;
+    }
+}
+
+/* 19.5:9 phones (Oppo, Vivo) */
+@media (min-aspect-ratio: 19.5/9) and (max-aspect-ratio: 20/9) {
+    #chessBoard {
+        width: 82vmin;
+        height: 82vmin;
+    }
+}
+
+/* 20:9 phones (Redmi, Realme) */
+@media (min-aspect-ratio: 20/9) and (max-aspect-ratio: 21/9) {
+    #chessBoard {
+        width: 80vmin;
+        height: 80vmin;
+    }
+}
+
+/* Ultra tall phones (21:9+) */
+@media (min-aspect-ratio: 21/9) {
+    #chessBoard {
+        width: 78vmin;
+        height: 78vmin;
+    }
+}
+
+/* Tablets (iPad etc.) */
+@media (min-aspect-ratio: 4/3) and (max-aspect-ratio: 3/2) {
+    #chessBoard {
+        width: 70vmin;
+        height: 70vmin;
+    }
+}
+
+
+
 
 
 
