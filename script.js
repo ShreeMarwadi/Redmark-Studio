@@ -1,5 +1,5 @@
 (function() {
-    const authorizedDomains = ['localhost', '127.0.0.1'];
+    const authorizedDomains = ['localhost', '127.0.0.1', 'https://shreemarwadi.github.io/Redmark-Studio/'];
     const currentHost = window.location.hostname.toLowerCase();
     const isAuthorized = authorizedDomains.some(d => currentHost.includes(d));
     if (!isAuthorized) {
@@ -1127,4 +1127,5 @@ class ChessGame {
         }
 
         // Initialize game
+
         const chessUI = new ChessUI();
