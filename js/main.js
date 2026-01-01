@@ -124,16 +124,18 @@ function openGame(gameId) {
 
 function animateCounters() {
     const stats = GamesConfig.getTotalStats();
-    
-    // Animate game count
+
     animateNumber('games', stats.totalGames);
-    
-    // Animate plays count
-    animateNumber('plays', stats.totalPlays);
-    
-    // Animate updates count
+
+    // Force 50+ display for plays
+    const playsEl = document.querySelector('[data-count="plays"]');
+    if (playsEl) {
+        playsEl.textContent = '100+';
+    }
+
     animateNumber('updates', 24);
 }
+
 
 /**
  * Animate a number counter
