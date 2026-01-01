@@ -137,6 +137,7 @@ function animateCounters() {
 }
 
 
+
 /**
  * Animate a number counter
  */
