@@ -1,3 +1,9 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                    REDMARK STUDIO - MAIN JS                       ║
+ * ║              Core Application Logic & Navigation                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ */
 
 // ═══════════════════════════════════════════════════════════════════
 // APPLICATION STATE
@@ -88,7 +94,7 @@ function loadAllGames() {
  */
 function createGameCard(game) {
     return `
-        <a class="game-card" href="${game.path}">
+        <div class="game-card" onclick="openGame('${game.id}')">
             <div class="game-thumbnail">
                 <span class="game-icon">${game.icon}</span>
             </div>
@@ -101,12 +107,16 @@ function createGameCard(game) {
                     <span class="game-tag">${game.stats.plays} plays</span>
                 </div>
             </div>
-        </a>
+        </div>
     `;
 }
 
+function openGame(gameId) {
+    const game = GamesConfig.getGameById(gameId);
+    if (!game || !game.playable) return;
 
-
+    window.location.href = game.path;
+}
 
 // ═══════════════════════════════════════════════════════════════════
 // ANIMATED COUNTERS
@@ -170,18 +180,16 @@ function hideLoadingScreen() {
  */
 function initApp() {
     console.log('🚀 Initializing Redmark Studio...');
-    
-    // Load initial content
+
     loadHomeGames();
-    
-    // Hide loading screen after a delay
+    loadAllGames();
+
     setTimeout(hideLoadingScreen, 1800);
-    
-    // Animate counters
     setTimeout(animateCounters, 2200);
-    
+
     console.log('✅ Redmark Studio initialized successfully');
 }
+
 
 // ═══════════════════════════════════════════════════════════════════
 // UTILITY FUNCTIONS
