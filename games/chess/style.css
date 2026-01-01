@@ -204,17 +204,17 @@
         }
 
         #chessBoard {
-    width: min(90vw, 480px);
-    aspect-ratio: 1 / 1;
+    width: min(92vmin, 480px);
+    height: min(92vmin, 480px);
 
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
 
-    border: 5px solid #3E2723;
-    border-radius: 5px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    box-sizing: border-box;
 }
+
 
 
         .boardSquare {
@@ -230,6 +230,7 @@
             box-sizing: border-box;
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
         }
 
         .square-light {
@@ -628,6 +629,7 @@
         width: 100%;
     }
 }
+
 
 
 
