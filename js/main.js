@@ -94,7 +94,7 @@ function loadAllGames() {
  */
 function createGameCard(game) {
     return `
-        <div class="game-card" onclick="openGame('${game.id}')">
+        <a class="game-card" href="${game.path}">
             <div class="game-thumbnail">
                 <span class="game-icon">${game.icon}</span>
             </div>
@@ -107,20 +107,10 @@ function createGameCard(game) {
                     <span class="game-tag">${game.stats.plays} plays</span>
                 </div>
             </div>
-        </div>
+        </a>
     `;
 }
 
-function openGame(gameId) {
-    const game = GamesConfig.getGameById(gameId);
-    if (!game || !game.playable) return;
-
-    // increment play count
-    GamesConfig.incrementPlayCount(gameId);
-
-    // navigate to game
-    window.location.href = game.path;
-}
 
 // ═══════════════════════════════════════════════════════════════════
 // ANIMATED COUNTERS
