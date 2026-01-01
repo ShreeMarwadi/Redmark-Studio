@@ -1,0 +1,583 @@
+ @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Rye&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            background: #5D3A1A;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        #gameContainer {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .indianBorder {
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(135deg, #8B4513 0%, #5D3A1A 50%, #3E2723 100%);
+            border-radius: 12px;
+            box-shadow: 
+                0 8px 30px rgba(0, 0, 0, 0.5),
+                inset 0 2px 8px rgba(255, 215, 0, 0.1);
+        }
+
+        .indianBorder::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border: 2px solid #D4AF37;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        #homePage {
+            text-align: center;
+            min-width: 380px;
+        }
+
+        .gameLogo {
+            font-family: 'Rye', serif;
+            font-size: 38px;
+            color: #FFD700;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(255, 215, 0, 0.3);
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .gameSubtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            color: #DEB887;
+            margin-bottom: 25px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .menuButton {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 13px 45px;
+            margin: 8px;
+            background: linear-gradient(145deg, #6B4423, #4A2F17);
+            border: 2px solid #D4AF37;
+            color: #FFD700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            min-width: 260px;
+            border-radius: 5px;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .menuButton:hover {
+            background: linear-gradient(145deg, #7B5B33, #5D3A1A);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 18px rgba(0, 0, 0, 0.5),
+                0 0 12px rgba(212, 175, 55, 0.2);
+            color: #FFF8DC;
+        }
+
+        .decorativeLotus {
+            font-size: 25px;
+            margin: 12px 0;
+            color: #D4AF37;
+        }
+
+        #colorSelection {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .colorTitle {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .colorButtons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .colorBtn {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 18px 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            border: 2px solid #D4AF37;
+        }
+
+        .whiteBtn {
+            background: linear-gradient(145deg, #FFF8DC, #DEB887);
+            color: #3E2723;
+        }
+
+        .blackBtn {
+            background: linear-gradient(145deg, #3E2723, #1A0F0A);
+            color: #FFF8DC;
+        }
+
+        .colorBtn:hover {
+            transform: scale(1.05);
+        }
+
+        #chessGame {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gameHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 0 3px;
+        }
+
+        .turnIndicator {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: #FFD700;
+            padding: 6px 18px;
+            background: rgba(62, 39, 35, 0.9);
+            border-radius: 5px;
+            border: 2px solid #D4AF37;
+        }
+
+        .gameInfo {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            color: #DEB887;
+        }
+
+        #chessBoard {
+            border: 5px solid #3E2723;
+            border-radius: 5px;
+            box-shadow: 
+                0 6px 25px rgba(0, 0, 0, 0.5);
+            width: 480px;
+            height: 480px;
+            display: grid;
+            grid-template-columns: repeat(8, 60px);
+            grid-template-rows: repeat(8, 60px);
+            table-layout: fixed;
+        }
+
+        .boardSquare {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+            cursor: pointer;
+            transition: none;
+            position: relative;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .square-light {
+            background: #DEB887;
+        }
+
+        .square-dark {
+            background: #8B4513;
+        }
+
+        .square-light:hover {
+            background: #E8C99B;
+        }
+
+        .square-dark:hover {
+            background: #9B5A23;
+        }
+
+        .square-selected {
+            box-shadow: inset 0 0 0 4px #FFD700 !important;
+            background: inherit !important;
+        }
+
+        .square-valid-move::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.8) 0%, rgba(212, 175, 55, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .square-last-move {
+            box-shadow: inset 0 0 0 3px rgba(255, 215, 0, 0.6) !important;
+            background: inherit !important;
+        }
+
+        /* Green shadow for destination square - shows where piece was placed */
+        .square-destination {
+            box-shadow: inset 0 0 0 4px #4CAF50 !important;
+            background: rgba(76, 175, 80, 0.35) !important;
+            animation: destinationPulse 1s ease-out;
+        }
+
+        @keyframes destinationPulse {
+            0% {
+                box-shadow: inset 0 0 0 6px #4CAF50;
+                background: rgba(76, 175, 80, 0.6);
+            }
+            100% {
+                box-shadow: inset 0 0 0 4px #4CAF50;
+                background: rgba(76, 175, 80, 0.35);
+            }
+        }
+
+        .square-check {
+            animation: checkPulse 0.8s ease-in-out infinite;
+            background: #cc4444 !important;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.6); }
+            50% { box-shadow: inset 0 0 25px rgba(255, 0, 0, 0.9); }
+        }
+
+        /* Animation for moving pieces */
+        .chessPiece {
+            font-size: 42px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            user-select: none;
+            cursor: grab;
+            z-index: 1;
+            line-height: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .chessPiece:active {
+            cursor: grabbing;
+        }
+
+        .chessPiece.dragging {
+            opacity: 0.6;
+        }
+
+        /* Animation when piece is placed - smooth scale and fade in */
+        .chessPiece.just-placed {
+            animation: piecePlaced 0.35s ease-out;
+        }
+
+        @keyframes piecePlaced {
+            0% {
+                transform: scale(0.7);
+                opacity: 0.3;
+            }
+            45% {
+                transform: scale(1.15);
+            }
+            70% {
+                transform: scale(0.95);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Capture animation - spin and shrink */
+        .chessPiece.captured {
+            animation: captureAnim 0.5s ease-out forwards;
+        }
+
+        @keyframes captureAnim {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            30% {
+                transform: scale(1.3) rotate(45deg);
+                opacity: 0.8;
+            }
+            60% {
+                transform: scale(1.1) rotate(90deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        .piece-white {
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                0 0 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .piece-black {
+            color: #1A1A1A;
+            text-shadow: 
+                0 0 1px rgba(255, 255, 255, 0.3),
+                1px 1px 2px rgba(255, 255, 255, 0.2);
+        }
+
+        .gameControls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .controlButton {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 18px;
+            background: linear-gradient(145deg, #6B4423, #4A2F17);
+            border: 2px solid #D4AF37;
+            color: #FFD700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .controlButton:hover {
+            background: linear-gradient(145deg, #7B5B33, #5D3A1A);
+            transform: translateY(-2px);
+        }
+
+        #gameStatus {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .statusModal {
+            background: linear-gradient(135deg, #8B4513 0%, #5D3A1A 100%);
+            padding: 35px 55px;
+            border-radius: 12px;
+            text-align: center;
+            border: 3px solid #D4AF37;
+            animation: modalAppear 0.4s ease-out;
+        }
+
+        @keyframes modalAppear {
+            from {
+                transform: scale(0.7) translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .statusTitle {
+            font-family: 'Rye', serif;
+            font-size: 32px;
+            color: #FFD700;
+            margin-bottom: 12px;
+        }
+
+        .statusMessage {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: #FFF8DC;
+            margin-bottom: 20px;
+        }
+
+        .capturedContainer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 0 8px;
+        }
+
+        .capturedPieces {
+            font-size: 20px;
+            min-height: 25px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+
+        .whiteCaptured {
+            color: #FFFFFF;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .blackCaptured {
+            color: #1A1A1A;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        #moveHistory {
+            max-height: 100px;
+            overflow-y: auto;
+            padding: 8px;
+            background: rgba(62, 39, 35, 0.8);
+            border-radius: 5px;
+            border: 1px solid #D4AF37;
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            color: #DEB887;
+            width: 480px;
+            box-sizing: border-box;
+        }
+
+        #moveHistory::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        #moveHistory::-webkit-scrollbar-track {
+            background: #3E2723;
+        }
+
+        #moveHistory::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+        }
+
+        .moveNumber {
+            color: #D4AF37;
+            margin-right: 6px;
+        }
+
+        .whiteMove {
+            color: #FFF8DC;
+            margin-right: 5px;
+        }
+
+        .blackMove {
+            color: #DEB887;
+        }
+
+        #promotionModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #8B4513 0%, #5D3A1A 100%);
+            padding: 18px 25px;
+            border-radius: 10px;
+            border: 3px solid #D4AF37;
+            z-index: 150;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            animation: modalAppear 0.3s ease-out;
+        }
+
+        .promotionTitle {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: #FFD700;
+            margin-bottom: 12px;
+        }
+
+        .promotionPieces {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .promotionPiece {
+            font-size: 38px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .promotionPiece:hover {
+            background: rgba(212, 175, 55, 0.3);
+            transform: scale(1.1);
+        }
+
+        #aiThinking {
+            display: none;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            color: #FFD700;
+            padding: 6px 16px;
+            background: rgba(62, 39, 35, 0.9);
+            border-radius: 5px;
+            border: 2px solid #D4AF37;
+            margin-top: 6px;
+        }
+
+        .thinkingDots {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
