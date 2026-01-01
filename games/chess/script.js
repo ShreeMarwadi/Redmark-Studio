@@ -610,12 +610,17 @@ class ChessGame {
             setupEventListeners() {
                 document.getElementById('playVsAI').addEventListener('click', () => this.showColorSelection());
                 document.getElementById('playPvP').addEventListener('click', () => this.startPvP());
-                document.getElementById('quitGame').addEventListener('click', () => {
-    if (confirm('Are you sure you want to quit the game?')) {
-       window.location.href = 'https://shreemarwadi.github.io/Redmark-Studio/';
+               document.getElementById('quitGame').addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-    }
+    const confirmQuit = confirm('Are you sure you want to quit the game?');
+    if (!confirmQuit) return;
+
+    // Force redirect to main website
+    window.location.assign('https://shreemarwadi.github.io/Redmark-Studio/');
 });
+
 
                 
                 document.getElementById('chooseWhite').addEventListener('click', () => this.startAI('white'));
@@ -1144,4 +1149,5 @@ class ChessGame {
         // Initialize game
 
         const chessUI = new ChessUI();
+
 
