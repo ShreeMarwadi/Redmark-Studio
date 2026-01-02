@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Redmark Studio - Premium Indie Game Hub. Play instantly, no downloads required.">
+    <title>Redmark Studio | Indie Game Hub</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon.png">
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">◆</span>
+                <span class="logo-text">Redmark<span class="logo-accent">Studio</span></span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#games" class="nav-link">Games</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            
+           <div class="nav-social">
+    <!-- Instagram -->
+    <a href="https://instagram.com/shardul_marwadi" class="social-link" aria-label="Instagram" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.75-.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/>
+        </svg>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://youtube.com/@SuperShreeGaming" class="social-link" aria-label="YouTube" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a2.958 2.958 0 00-2.082-2.092C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.416.594A2.958 2.958 0 00.502 6.186C0 8.092 0 12 0 12s0 3.908.502 5.814a2.958 2.958 0 002.082 2.092C4.49 20.5 12 20.5 12 20.5s7.51 0 9.416-.594a2.958 2.958 0 002.082-2.092C24 15.908 24 12 24 12s0-3.908-.502-5.814zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+        </svg>
+    </a>
+</div>
+
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-particles" id="particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">◆ Indie Game Studio</div>
+            <h1 class="hero-title">
+                <span class="title-line">Redmark</span>
+                <span class="title-line title-accent">Where Games Come Alive</span>
+            </h1>
+            <p class="hero-description">
+                Redmark Studio is an indie game studio dedicated to building original browser games with clean design and satisfying gameplay. All games are developed in-house and can be played instantly without downloads. Click, play, and experience games built with passion and precision.
+            </p>
+            <div class="hero-cta">
+                <a href="#games" class="btn btn-primary">
+                    <span>Explore Games</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#about" class="btn btn-secondary">Our Story</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Games</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Browser Native</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">Free</span>
+                    <span class="stat-label">To Play</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="section-header">
+            <span class="section-badge">◆ Our Collection</span>
+            <h2 class="section-title">Play Instantly</h2>
+            <p class="section-description">
+                Click any game to start playing immediately. No downloads, no installs — just pure gaming fun.
+            </p>
+        </div>
+        
+        <div class="games-grid" id="games-grid">
+            <!-- Games will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <span class="section-badge">◆ Our Philosophy</span>
+                <h2 class="section-title">Built by a Gamer,<br>For Gamers</h2>
+                <div class="about-text">
+                    <p>
+                        Redmark Studio is an independent game studio driven by creativity, experimentation, and a love for games. Every project is built with the goal of delivering simple yet meaningful play experiences.
+                    </p>
+                    <p>
+                        At Redmark Studio, all games are designed and developed in-house with a strong focus on gameplay, performance, and visual clarity. The studio specializes in browser-based games that run instantly, removing barriers like downloads and installations. Each title is crafted to be accessible while still offering depth, challenge, and replay value. From casual concepts to strategic experiences, every game reflects careful design and attention to detail.
+                    </p>
+                    <p>
+                        Redmark Studio believes in quality over quantity and growth through creation. The journey is about learning, improving, and sharing original games with players around the world.
+                    </p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <div class="feature-icon">◆</div>
+                        <div class="feature-content">
+                            <h4>Instant Play</h4>
+                            <p>Jump straight into the action with zero loading times or downloads.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">◆</div>
+                        <div class="feature-content">
+                            <h4>Browser Native</h4>
+                            <p>Built with HTML5 and Canvas for seamless performance across devices.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">◆</div>
+                        <div class="feature-content">
+                            <h4>Always Free</h4>
+                            <p>Premium quality games, accessible to everyone at no cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <div class="about-card">
+                    <div class="about-logo">
+                        <span>◆</span>
+                    </div>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="number">2024</span>
+                            <span class="label">Founded</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="number">∞</span>
+                            <span class="label">Possibilities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon">◆</span>
+                    <span class="logo-text">Redmark<span class="logo-accent">Studio</span></span>
+                </a>
+                <p>Crafting digital worlds, one game at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/ShreeMarwadi" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.instagram.com/shardul_marwadi/?hl=en"target="_blank">Instagram</a></li>
+                        <li><a href="https://www.youtube.com/@SuperShreeGaming"target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Redmark Studio. All rights reserved. Made with passion.</p>
+        </div>
+    </footer>
+
+    <!-- Game Modal -->
+    <div class="game-modal" id="game-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Game Title</h3>
+                <div class="modal-controls">
+                    <button class="modal-btn" id="fullscreen-btn" aria-label="Toggle fullscreen">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/>
+                        </svg>
+                    </button>
+                    <button class="modal-btn close-btn" id="close-modal" aria-label="Close game">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <iframe id="game-frame" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
