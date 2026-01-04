@@ -59,20 +59,3 @@ https://shreemarwadi.github.io/Redmark-Studio/
 
 ---
 
-## 📂 Project Structure
-
-```text
-Redmark-Studio/
-├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   ├── main.js
-│   ├── games-config.js
-│   └── security.js
-├── games/
-│   └── chess/
-│       ├── index.html
-│       ├── style.css
-│       └── script.js
-└── README.md
