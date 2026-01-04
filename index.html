@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redmark Studio – Play Games. Built for the Web.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/games.css">
+    <link rel="stylesheet" href="styles/game.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/core.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <!-- Particle Background Container -->
+    <div id="particle-container" class="particle-container"></div>
+    
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+    
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-logo">
+            <a href="#home" onclick="navigateTo('home'); return false;">
+                <span class="logo-mark">◆</span>
+                <span class="logo-text">REDMARK</span>
+                <span class="logo-studio">STUDIO</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#home" onclick="navigateTo('home'); return false;" class="nav-link active">Home</a>
+            <a href="#games" onclick="navigateTo('games'); return false;" class="nav-link">Games</a>
+            <a href="#about" onclick="navigateTo('about'); return false;" class="nav-link">About</a>
+            <a href="#contact" onclick="navigateTo('contact'); return false;" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-cta">
+            <a href="#games" onclick="navigateTo('games'); return false;" class="btn btn-primary">Play Games</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Indie Game Studio</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Play Games.</span>
+                        <span class="title-accent">Built for the Web.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        We craft immersive gaming experiences that run directly in your browser. 
+                        No downloads. No installations. Just pure gaming.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary btn-large" onclick="navigateTo('games')">
+                            <span class="btn-icon">▶</span>
+                            <span>Play Games</span>
+                        </button>
+                        <button class="btn btn-secondary btn-large" onclick="navigateTo('about')">
+                            <span class="btn-icon">→</span>
+                            <span>Learn More</span>
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="12">0</span>
+                            <span class="stat-label">Games</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="85000">0</span>
+                            <span class="stat-label">Plays</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="4.8">0</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="floating-card card-1">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-icon">🎮</div>
+                                <span>Neon Runner</span>
+                            </div>
+                        </div>
+                        <div class="floating-card card-2">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-icon">🧩</div>
+                                <span>Quantum Puzzle</span>
+                            </div>
+                        </div>
+                        <div class="floating-card card-3">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-icon">⚔️</div>
+                                <span>Cyber Duel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Games Section -->
+            <div class="featured-section">
+                <div class="section-header">
+                    <span class="section-label">Featured</span>
+                    <h2 class="section-title">Our Latest Creations</h2>
+                </div>
+                <div class="featured-games">
+                    <div class="featured-card">
+                        <div class="featured-card-bg"></div>
+                        <div class="featured-card-content">
+                            <div class="featured-tag">New</div>
+                            <h3 class="featured-title">Neon Runner</h3>
+                            <p class="featured-desc">Fast-paced cyberpunk runner with procedural generation</p>
+                            <div class="featured-meta">
+                                <span class="game-tags">
+                                    <span class="tag">Action</span>
+                                    <span class="tag">Runner</span>
+                                </span>
+                                <button class="btn btn-primary btn-sm" onclick="navigateTo('game', 'neon-runner')">
+                                    Play Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-card">
+                        <div class="featured-card-bg"></div>
+                        <div class="featured-card-content">
+                            <div class="featured-tag">Popular</div>
+                            <h3 class="featured-title">Quantum Puzzle</h3>
+                            <p class="featured-desc">Mind-bending spatial reasoning challenges</p>
+                            <div class="featured-meta">
+                                <span class="game-tags">
+                                    <span class="tag">Puzzle</span>
+                                    <span class="tag">Strategy</span>
+                                </span>
+                                <button class="btn btn-primary btn-sm" onclick="navigateTo('game', 'quantum-puzzle')">
+                                    Play Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-card">
+                        <div class="featured-card-bg"></div>
+                        <div class="featured-card-content">
+                            <div class="featured-tag">Multiplayer</div>
+                            <h3 class="featured-title">Cyber Duel</h3>
+                            <p class="featured-desc">Real-time PvP combat in a digital arena</p>
+                            <div class="featured-meta">
+                                <span class="game-tags">
+                                    <span class="tag">Action</span>
+                                    <span class="tag">Multiplayer</span>
+                                </span>
+                                <button class="btn btn-primary btn-sm" onclick="navigateTo('game', 'cyber-duel')">
+                                    Play Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Page -->
+        <section id="games" class="page">
+            <div class="games-hero">
+                <h1 class="games-title">The Arcade</h1>
+                <p class="games-subtitle">Choose your adventure from our collection</p>
+            </div>
+            <div class="games-controls">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Games</button>
+                    <button class="filter-btn" data-filter="action">Action</button>
+                    <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+                    <button class="filter-btn" data-filter="strategy">Strategy</button>
+                    <button class="filter-btn" data-filter="multiplayer">Multiplayer</button>
+                </div>
+                <div class="view-toggles">
+                    <button class="view-btn active" data-sort="new">
+                        <span class="view-icon">◆</span>
+                        <span>New</span>
+                    </button>
+                    <button class="view-btn" data-sort="popular">
+                        <span class="view-icon">★</span>
+                        <span>Popular</span>
+                    </button>
+                </div>
+            </div>
+            <div class="games-grid" id="gamesGrid">
+                <!-- Games will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Individual Game Page -->
+        <section id="game" class="page">
+            <div class="game-page-container" id="gamePageContainer">
+                <!-- Dynamic game content will be loaded here -->
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <div class="about-container">
+                <div class="about-hero">
+                    <span class="section-label">Our Story</span>
+                    <h1 class="about-title">Building Worlds,<br>One Pixel at a Time</h1>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-main">
+                        <div class="about-card">
+                            <div class="about-card-icon">🎯</div>
+                            <h3>Our Vision</h3>
+                            <p>We're Redmark Studio – a passionate indie game development team dedicated to creating immersive web-based gaming experiences. We believe that games should be accessible to everyone, everywhere, without barriers.</p>
+                        </div>
+                        
+                        <div class="about-card">
+                            <div class="about-card-icon">🛠️</div>
+                            <h3>Our Tech</h3>
+                            <p>Built on cutting-edge web technologies including HTML5 Canvas, WebGL, and modern JavaScript frameworks. Our games leverage the full power of modern browsers for console-quality experiences.</p>
+                        </div>
+                        
+                        <div class="about-card">
+                            <div class="about-card-icon">👥</div>
+                            <h3>Our Team</h3>
+                            <p>A small but mighty team of game enthusiasts, developers, and artists united by a shared passion for creating memorable gaming experiences. Every member brings unique expertise to the table.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <h3 class="tech-title">Tech Stack</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">HTML5 Canvas</div>
+                            <div class="tech-item">WebGL</div>
+                            <div class="tech-item">JavaScript ES6+</div>
+                            <div class="tech-item">React</div>
+                            <div class="tech-item">Three.js</div>
+                            <div class="tech-item">Unity Web</div>
+                            <div class="tech-item">WebSocket</div>
+                            <div class="tech-item">Node.js</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="contact-container">
+                <div class="contact-hero">
+                    <span class="section-label">Get in Touch</span>
+                    <h1 class="contact-title">Let's Connect</h1>
+                    <p class="contact-subtitle">Have questions, feedback, or want to collaborate? We'd love to hear from you.</p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-methods">
+                        <a href="mailto:hello@redmarkstudio.com" class="contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-info">
+                                <h3>Email</h3>
+                                <p>hello@redmarkstudio.com</p>
+                            </div>
+                            <span class="contact-arrow">→</span>
+                        </a>
+                        
+                        <a href="https://youtube.com/@redmarkstudio" target="_blank" class="contact-card">
+                            <div class="contact-icon">▶️</div>
+                            <div class="contact-info">
+                                <h3>YouTube</h3>
+                                <p>@redmarkstudio</p>
+                            </div>
+                            <span class="contact-arrow">→</span>
+                        </a>
+                        
+                        <a href="https://instagram.com/redmarkstudio" target="_blank" class="contact-card">
+                            <div class="contact-icon">📷</div>
+                            <div class="contact-info">
+                                <h3>Instagram</h3>
+                                <p>@redmarkstudio</p>
+                            </div>
+                            <span class="contact-arrow">→</span>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-note">
+                        <p>We typically respond within 24-48 hours. For urgent matters, please indicate "URGENT" in the subject line.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hidden Dashboard (Redmark Core) -->
+    <div id="core-dashboard" class="core-dashboard hidden">
+        <!-- Unlock Animation Overlay -->
+        <div id="core-unlock" class="core-unlock">
+            <div class="unlock-overlay"></div>
+            <div class="unlock-content">
+                <div class="unlock-text">CORE UNLOCKED</div>
+            </div>
+        </div>
+        
+        <!-- Core Dashboard Content -->
+        <div class="core-container">
+            <div class="core-header">
+                <div class="core-logo">
+                    <span class="core-mark">◆</span>
+                    <span class="core-title">REDMARK CORE</span>
+                </div>
+                <div class="core-time">
+                    <span class="time-display" id="coreTime">00:00:00</span>
+                </div>
+                <button class="core-lock-btn" onclick="lockCore()">
+                    <span>🔒</span>
+                    <span>Lock</span>
+                </button>
+            </div>
+            
+            <div class="core-nav">
+                <button class="core-nav-btn active" data-core="dashboard">Dashboard</button>
+                <button class="core-nav-btn" data-core="notes">Notes</button>
+                <button class="core-nav-btn" data-core="analytics">Analytics</button>
+            </div>
+            
+            <!-- Dashboard Section -->
+            <div id="core-dashboard-view" class="core-view active">
+                <div class="core-cards">
+                    <div class="core-card">
+                        <div class="core-card-header">
+                            <span class="core-card-icon">📁</span>
+                            <span class="core-card-title">Active Projects</span>
+                        </div>
+                        <div class="core-card-value">4</div>
+                        <div class="core-card-status status-active">
+                            <span class="status-dot"></span>
+                            In Development
+                        </div>
+                    </div>
+                    
+                    <div class="core-card">
+                        <div class="core-card-header">
+                            <span class="core-card-icon">🎮</span>
+                            <span class="core-card-title">Build Status</span>
+                        </div>
+                        <div class="core-card-value">v2.4.1</div>
+                        <div class="core-card-status status-success">
+                            <span class="status-dot"></span>
+                            All Systems Operational
+                        </div>
+                    </div>
+                    
+                    <div class="core-card">
+                        <div class="core-card-header">
+                            <span class="core-card-icon">🔧</span>
+                            <span class="core-card-title">Current Focus</span>
+                        </div>
+                        <div class="core-card-value">Neon Runner</div>
+                        <div class="core-card-status status-warning">
+                            <span class="status-dot"></span>
+                            Polish Phase
+                        </div>
+                    </div>
+                    
+                    <div class="core-card">
+                        <div class="core-card-header">
+                            <span class="core-card-icon">💻</span>
+                            <span class="core-card-title">System Info</span>
+                        </div>
+                        <div class="core-card-value">Online</div>
+                        <div class="core-card-status status-success">
+                            <span class="status-dot"></span>
+                            All Services Active
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="core-recent">
+                    <h3 class="core-section-title">Recent Activity</h3>
+                    <div class="activity-log">
+                        <div class="activity-item">
+                            <span class="activity-time">14:32</span>
+                            <span class="activity-text">Deployed v2.4.1 to production</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">12:15</span>
+                            <span class="activity-text">Fixed physics bug in Cyber Duel</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">10:45</span>
+                            <span class="activity-text">Added new level to Quantum Puzzle</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">09:00</span>
+                            <span class="activity-text">Team standup completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Notes Section -->
+            <div id="core-notes-view" class="core-view">
+                <div class="notes-container">
+                    <div class="notes-sidebar">
+                        <div class="notes-header">
+                            <h3>Vault Notes</h3>
+                            <button class="notes-add-btn" onclick="createNewNote()">+</button>
+                        </div>
+                        <div class="notes-list" id="notesList">
+                            <!-- Notes will be dynamically inserted here -->
+                        </div>
+                    </div>
+                    <div class="notes-editor">
+                        <input type="text" class="notes-title-input" id="noteTitle" placeholder="Note Title...">
+                        <div class="notes-tags" id="notesTags">
+                            <span class="note-tag" data-tag="important">important</span>
+                            <span class="note-tag" data-tag="bug">bug</span>
+                            <span class="note-tag" data-tag="feature">feature</span>
+                            <span class="note-tag" data-tag="idea">idea</span>
+                        </div>
+                        <textarea class="notes-content" id="noteContent" placeholder="Start typing your note..."></textarea>
+                        <div class="notes-actions">
+                            <button class="notes-save-btn" onclick="saveNote()">Save Note</button>
+                            <button class="notes-delete-btn" onclick="deleteNote()">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Analytics Section -->
+            <div id="core-analytics-view" class="core-view">
+                <div class="analytics-container">
+                    <h2 class="analytics-title">Studio Analytics</h2>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <div class="ring-chart" data-value="12" data-max="20" data-color="#00E5FF">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="ring-bg" cx="50" cy="50" r="40"/>
+                                    <circle class="ring-progress" cx="50" cy="50" r="40" stroke="#00E5FF"/>
+                                </svg>
+                                <div class="ring-value">12</div>
+                            </div>
+                            <span class="analytics-label">Total Games</span>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <div class="ring-chart" data-value="85000" data-max="100000" data-color="#6C63FF">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="ring-bg" cx="50" cy="50" r="40"/>
+                                    <circle class="ring-progress" cx="50" cy="50" r="40" stroke="#6C63FF"/>
+                                </svg>
+                                <div class="ring-value">85K</div>
+                            </div>
+                            <span class="analytics-label">Total Plays</span>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <div class="analytics-simple">
+                                <div class="simple-value">Neon Runner</div>
+                                <div class="simple-label">Last Played</div>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <div class="analytics-simple">
+                                <div class="simple-value">12.4 min</div>
+                                <div class="simple-label">Avg Session</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-mark">◆</span>
+                <span>REDMARK STUDIO</span>
+            </div>
+            <div class="footer-links">
+                <a href="#home" onclick="navigateTo('home'); return false;">Home</a>
+                <a href="#games" onclick="navigateTo('games'); return false;">Games</a>
+                <a href="#about" onclick="navigateTo('about'); return false;">About</a>
+                <a href="#contact" onclick="navigateTo('contact'); return false;">Contact</a>
+            </div>
+            <div class="footer-copy">
+                © 2024 Redmark Studio. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/games-config.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Global navigation function
+        window.navigateTo = function(page, gameId) {
+            if (window.navigation) {
+                window.navigation.navigateTo(page, gameId);
+            }
+        };
+        
+        // Global game functions
+        window.gameFullscreen = function() {
+            const gameFrame = document.getElementById('gameFrame');
+            if (gameFrame) {
+                if (gameFrame.requestFullscreen) {
+                    gameFrame.requestFullscreen();
+                } else if (gameFrame.webkitRequestFullscreen) {
+                    gameFrame.webkitRequestFullscreen();
+                }
+            }
+        };
+        
+        // Global note functions
+        window.createNewNote = function() {
+            if (window.coreDashboard) {
+                window.coreDashboard.createNewNote();
+            }
+        };
+        
+        window.saveNote = function() {
+            if (window.coreDashboard) {
+                window.coreDashboard.saveCurrentNote();
+            }
+        };
+        
+        window.deleteNote = function() {
+            if (window.coreDashboard) {
+                window.coreDashboard.deleteCurrentNote();
+            }
+        };
+        
+        window.loadNote = function(noteId) {
+            if (window.coreDashboard) {
+                window.coreDashboard.loadNote(noteId);
+            }
+        };
+        
+        window.lockCore = function() {
+            if (window.coreDashboard) {
+                window.coreDashboard.lock();
+            }
+        };
+        
+        // Initialize the application
+        window.redmarkApp = new RedmarkStudio();
+    </script>
+</body>
+</html>

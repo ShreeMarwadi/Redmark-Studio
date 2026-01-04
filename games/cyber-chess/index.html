@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <title>WebChess Pro</title>
+    
+</head>
+<body>
+    <!-- Home Menu -->
+    <div id="home-menu" class="screen active">
+        <div class="menu-container">
+            <h1 class="logo">♔ Cyber Chess</h1>
+            <p class="subtitle">Premium Chess Experience</p>
+            <div class="menu-buttons">
+                <button class="menu-btn primary" onclick="showScreen('difficulty-screen')">
+                    Play with AI
+                </button>
+                <button class="menu-btn secondary" onclick="start2PlayerMode()">
+                    2 Player
+                </button>
+                <button class="menu-btn secondary" onclick="quitToHomepage()">
+                    Quit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Difficulty Selection -->
+    <div id="difficulty-screen" class="screen">
+        <div class="menu-container">
+            <h2 class="selection-title">Select Difficulty</h2>
+            <div class="selection-buttons">
+                <button class="selection-btn" onclick="selectDifficulty('easy')" data-difficulty="easy">Easy</button>
+                <button class="selection-btn" onclick="selectDifficulty('medium')" data-difficulty="medium">Medium</button>
+                <button class="selection-btn" onclick="selectDifficulty('hard')" data-difficulty="hard">Hard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Color Selection -->
+    <div id="color-screen" class="screen">
+        <div class="menu-container">
+            <h2 class="selection-title">Choose Your Color</h2>
+            <div class="selection-buttons">
+                <button class="selection-btn" onclick="startAIMode('white')">
+                    Play as White
+                </button>
+                <button class="selection-btn" onclick="startAIMode('black')">
+                    Play as Black
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div id="turn-indicator" class="turn-indicator white-turn">White to move</div>
+            <button class="sound-toggle" onclick="toggleSound()" id="sound-btn">🔊</button>
+        </div>
+        
+        <div class="board-container">
+            <div class="captured-area">
+                <div class="captured-label">Captured by Black</div>
+                <div id="captured-white" class="captured-pieces"></div>
+            </div>
+            
+            <div id="chessboard"></div>
+            
+            <div class="captured-area">
+                <div class="captured-label">Captured by White</div>
+                <div id="captured-black" class="captured-pieces"></div>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <button class="game-btn" onclick="restartGame()">Restart</button>
+            <button class="game-btn" onclick="backToMenu()">Menu</button>
+        </div>
+    </div>
+
+    <!-- Promotion Modal -->
+    <div id="promotion-modal" class="modal-overlay">
+        <div class="promotion-modal">
+            <h3 class="promotion-title">Choose Promotion</h3>
+            <div class="promotion-pieces" id="promotion-pieces"></div>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal-overlay">
+        <div class="promotion-modal game-over-modal">
+            <h2 id="game-over-title" class="game-over-title">Checkmate!</h2>
+            <p id="game-over-message" class="game-over-message">White wins the game</p>
+            <div class="selection-buttons">
+                <button class="selection-btn" onclick="restartGame(); hideModal('game-over-modal');">Play Again</button>
+                <button class="selection-btn" onclick="backToMenu(); hideModal('game-over-modal');">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
