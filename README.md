@@ -4,7 +4,7 @@ A modern web-based game studio showcasing interactive browser games built with c
 Designed to work flawlessly on **PC, tablet, and mobile devices**.
 
 🌐 **Live Website**  
-👉 https://shreemarwadi.github.io/Redmark-Studio/
+👉 https://shreemarwadi.github.io/Redmark-Studios/
 
 ---
 
